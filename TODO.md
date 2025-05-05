@@ -28,7 +28,7 @@
 - [x] Complete user documentation
 - [x] Create screenshots for plugin marketplace
 - [x] Prepare release notes (in build.gradle.kts)
-- [ ] Submit to JetBrains Plugin Repository (to be done after testing)
+- [x] Submit to JetBrains Plugin Repository (to be done after testing)
 
 ## Technical Notes
 
