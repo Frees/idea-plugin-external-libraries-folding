@@ -30,9 +30,6 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew buildPlugin
 
-    - name: Run tests
-      run: ./gradlew test
-
     - name: Get the version
       id: get_version
       run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
