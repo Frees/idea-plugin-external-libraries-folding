@@ -24,10 +24,8 @@
     </ul>
     <br>
     <h3>Before and After:</h3>
-    <p><b>Before:</b><br>
-    <img src="https://raw.githubusercontent.com/Frees/idea-plugin-external-libraries-folding/main/media/screenshot/before.png" alt="Before" width="400"/></p>
-    <p><b>After:</b><br>
-    <img src="https://raw.githubusercontent.com/Frees/idea-plugin-external-libraries-folding/main/media/screenshot/after.png" alt="After" width="400"/></p>
+    <p><b>Before and After:</b><br>
+    <img src="https://raw.githubusercontent.com/Frees/idea-plugin-external-libraries-folding/main/media/screenshot/before-after.png" alt="Before" width="400"/></p>
     <br>
     <h3>Settings:</h3>
     <p><img src="https://raw.githubusercontent.com/Frees/idea-plugin-external-libraries-folding/main/media/screenshot/settings.png" alt="Settings" width="500"/></p>

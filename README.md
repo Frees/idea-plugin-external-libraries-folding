@@ -24,11 +24,7 @@ After installation, the plugin automatically reorganizes the External Libraries 
 ### Before and After
 Here's how the External Libraries section looks before and after applying the plugin:
 
-#### Before
-![Before](media/screenshot/before.png)
-
-#### After
-![After](media/screenshot/after.png)
+![Before After](media/screenshot/before-after.png)
 
 ### Configuration
 You can configure the plugin in Settings/Preferences → Tools → External Lib Folding:
