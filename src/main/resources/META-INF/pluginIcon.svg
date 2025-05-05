@@ -1,12 +1,32 @@
 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M32.0845 7.94025V4H24.0203V7.9896H16.029V4H7.91553V7.94025H4V36H16.0044V32.0045C16.0058 30.9457 16.4274 29.9308 17.1766 29.1826C17.9258 28.4345 18.9412 28.0143 20 28.0143C21.0588 28.0143 22.0743 28.4345 22.8234 29.1826C23.5726 29.9308 23.9942 30.9457 23.9956 32.0045V36H36V7.94025H32.0845Z"
-          fill="url(#paint0_linear)"/>
-    <defs>
-        <linearGradient id="paint0_linear" x1="2.94192" y1="4.89955" x2="37.7772" y2="39.7345"
-                        gradientUnits="userSpaceOnUse">
-            <stop offset="0.15937" stop-color="#3BEA62"/>
-            <stop offset="0.5404" stop-color="#3C99CC"/>
-            <stop offset="0.93739" stop-color="#6B57FF"/>
-        </linearGradient>
-    </defs>
+  <!-- Main background rectangle with rounded corners -->
+  <rect x="4" y="4" width="32" height="32" rx="4" fill="url(#paint0_linear)"/>
+  
+  <!-- Folder structure lines - representing hierarchical organization -->
+  <!-- First level -->
+  <path d="M8 10H32" stroke="white" stroke-width="1.5" stroke-opacity="0.9"/>
+  <!-- Second level -->
+  <path d="M12 16H32" stroke="white" stroke-width="1.5" stroke-opacity="0.8"/>
+  <path d="M12 22H32" stroke="white" stroke-width="1.5" stroke-opacity="0.8"/>
+  <!-- Third level -->
+  <path d="M16 28H32" stroke="white" stroke-width="1.5" stroke-opacity="0.7"/>
+  
+  <!-- Vertical connecting lines -->
+  <path d="M12 10V28" stroke="white" stroke-width="1.5" stroke-opacity="0.6"/>
+  <path d="M16 16V28" stroke="white" stroke-width="1.5" stroke-opacity="0.6"/>
+  
+  <!-- Small folder icons -->
+  <rect x="8" y="8" width="3" height="3" rx="1" fill="white" fill-opacity="0.9"/>
+  <rect x="12" y="14" width="3" height="3" rx="1" fill="white" fill-opacity="0.8"/>
+  <rect x="12" y="20" width="3" height="3" rx="1" fill="white" fill-opacity="0.8"/>
+  <rect x="16" y="26" width="3" height="3" rx="1" fill="white" fill-opacity="0.7"/>
+  
+  <!-- Gradient definition -->
+  <defs>
+    <linearGradient id="paint0_linear" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+      <stop offset="0.15" stop-color="#3BEA62"/>
+      <stop offset="0.5" stop-color="#3C99CC"/>
+      <stop offset="0.85" stop-color="#6B57FF"/>
+    </linearGradient>
+  </defs>
 </svg>
