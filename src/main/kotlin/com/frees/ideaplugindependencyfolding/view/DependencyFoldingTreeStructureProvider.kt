@@ -3,6 +3,7 @@ package com.frees.ideaplugindependencyfolding.view
 import com.frees.ideaplugindependencyfolding.model.DependencyGroupNode
 import com.frees.ideaplugindependencyfolding.model.DependencyPackageGroup
 import com.frees.ideaplugindependencyfolding.model.DependencySourceGroup
+import com.frees.ideaplugindependencyfolding.settings.DependencyFoldingSettings
 import com.intellij.ide.projectView.TreeStructureProvider
 import com.intellij.ide.projectView.ViewSettings
 import com.intellij.ide.util.treeView.AbstractTreeNode
@@ -28,6 +29,11 @@ class DependencyFoldingTreeStructureProvider(private val project: Project) : Tre
         children: Collection<AbstractTreeNode<*>>,
         settings: ViewSettings
     ): Collection<AbstractTreeNode<*>> {
+        // Check if folding is enabled in settings
+        if (!DependencyFoldingSettings.getInstance().foldingEnabled) {
+            return children
+        }
+
         // We only want to modify the External Libraries node
         val parentValue = parent.value.toString()
 

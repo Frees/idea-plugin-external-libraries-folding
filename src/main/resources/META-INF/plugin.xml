@@ -5,7 +5,7 @@
 
     <!-- Public plugin name should be written in Title Case.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
-    <name>Dependency Folding</name>
+    <name>External Lib Folding</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
     <vendor url="https://github.com/frees">Frees</vendor>
@@ -23,6 +23,15 @@
       <li>Maintains all functionality of the original External Libraries view</li>
     </ul>
     <br>
+    <h3>Before and After:</h3>
+    <p><b>Before:</b><br>
+    <img src="https://raw.githubusercontent.com/Frees/idea-plugin-external-libraries-folding/main/media/screenshot/before.png" alt="Before" width="400"/></p>
+    <p><b>After:</b><br>
+    <img src="https://raw.githubusercontent.com/Frees/idea-plugin-external-libraries-folding/main/media/screenshot/after.png" alt="After" width="400"/></p>
+    <br>
+    <h3>Settings:</h3>
+    <p><img src="https://raw.githubusercontent.com/Frees/idea-plugin-external-libraries-folding/main/media/screenshot/settings.png" alt="Settings" width="500"/></p>
+    <br>
     By default, IntelliJ IDEA displays external libraries as a flat list in the Project View, which can become unwieldy in projects with many dependencies. 
     This plugin addresses this issue by providing a more organized, tree-based view.
   ]]></description>
@@ -39,5 +48,11 @@
 
         <!-- Register the TreeStructureProvider for modifying the tree structure -->
         <treeStructureProvider implementation="com.frees.ideaplugindependencyfolding.view.DependencyFoldingTreeStructureProvider"/>
+
+        <!-- Register the settings component -->
+        <applicationService serviceImplementation="com.frees.ideaplugindependencyfolding.settings.DependencyFoldingSettings"/>
+        <applicationConfigurable parentId="tools" instance="com.frees.ideaplugindependencyfolding.settings.DependencyFoldingConfigurable"
+                             id="com.frees.ideaplugindependencyfolding.settings.DependencyFoldingConfigurable"
+                             displayName="External Lib Folding"/>
     </extensions>
 </idea-plugin>

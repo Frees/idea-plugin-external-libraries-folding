@@ -9,8 +9,8 @@ import com.intellij.openapi.vfs.VirtualFile
 import javax.swing.Icon
 
 /**
- * Custom node type for grouped dependencies in the Project View.
- * This node represents a group of dependencies (either by source or package).
+ * Custom node type for grouped external libraries in the Project View.
+ * This node represents a group of external libraries (either by source or package).
  */
 class DependencyGroupNode(
     project: Project,

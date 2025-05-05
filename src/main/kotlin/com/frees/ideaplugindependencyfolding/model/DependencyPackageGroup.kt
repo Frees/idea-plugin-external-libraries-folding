@@ -1,53 +1,18 @@
 package com.frees.ideaplugindependencyfolding.model
 
+import com.frees.ideaplugindependencyfolding.settings.DependencyFoldingSettings
 import com.intellij.ide.projectView.ViewSettings
 import com.intellij.ide.util.treeView.AbstractTreeNode
 import com.intellij.openapi.project.Project
 import javax.swing.Icon
 
 /**
- * Logic for package-based grouping of dependencies.
+ * Logic for package-based grouping of external libraries.
  */
 class DependencyPackageGroup(
     private val project: Project,
     private val viewSettings: ViewSettings
 ) {
-    companion object {
-        // Common package prefixes
-        private val COMMON_PREFIXES = listOf(
-            "org.springframework" to "Spring",
-            "org.apache" to "Apache",
-            "com.google" to "Google",
-            "io.netty" to "Netty",
-            "org.jetbrains" to "JetBrains",
-            "com.fasterxml" to "FasterXML",
-            "org.slf4j" to "SLF4J",
-            "org.junit" to "JUnit",
-            "javax" to "Java EE",
-            "jakarta" to "Jakarta EE",
-            "com.squareup" to "Square",
-            "com.github" to "GitHub",
-            "org.hibernate" to "Hibernate",
-            "org.mockito" to "Mockito",
-            "org.eclipse" to "Eclipse",
-            "org.gradle" to "Gradle",
-            "org.scala-lang" to "Scala",
-            "org.apache.commons" to "Apache Commons",
-            "org.bouncycastle" to "Bouncy Castle",
-            "org.mapstruct" to "MapStruct",
-            "org.thymeleaf" to "Thymeleaf",
-            "org.yaml" to "YAML",
-            "org.dom4j" to "Dom4j",
-            "org.hamcrest" to "Hamcrest",
-            "org.glassfish" to "GlassFish",
-            "org.jboss" to "JBoss",
-            "org.springframework.boot" to "Spring Boot",
-            "org.springframework.cloud" to "Spring Cloud",
-            "org.springframework.data" to "Spring Data",
-            "org.springframework.security" to "Spring Security",
-            "org.springframework.web" to "Spring Web"
-        )
-    }
 
     /**
      * Groups the given nodes by their package structure.
@@ -76,15 +41,16 @@ class DependencyPackageGroup(
     }
 
     /**
-     * Identifies the package of a dependency node.
+     * Identifies the package of an external library node.
      */
     private fun identifyPackage(node: AbstractTreeNode<*>): String {
         val nodeName = node.name ?: return "Other"
 
-        // Try to match with common prefixes first
-        for ((prefix, name) in COMMON_PREFIXES) {
-            if (nodeName.contains(prefix, ignoreCase = true)) {
-                return name
+        // Try to match with common prefixes from settings
+        val settings = DependencyFoldingSettings.getInstance()
+        for (mapping in settings.commonPrefixes) {
+            if (nodeName.contains(mapping.prefix, ignoreCase = true)) {
+                return mapping.displayName
             }
         }
 

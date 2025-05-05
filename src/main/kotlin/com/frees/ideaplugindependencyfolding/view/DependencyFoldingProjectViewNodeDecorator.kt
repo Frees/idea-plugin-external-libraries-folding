@@ -20,7 +20,7 @@ class DependencyFoldingProjectViewNodeDecorator : ProjectViewNodeDecorator {
         if (node is DependencyGroupNode) {
             // We could customize the presentation further here if needed
             // For example, add a tooltip or change the text color
-            data.tooltip = "Dependency group: ${node.value}"
+            data.tooltip = "External Lib group: ${node.value}"
 
             // Make the group name bold to distinguish it from regular dependencies
             data.addText(node.value, SimpleTextAttributes.REGULAR_BOLD_ATTRIBUTES)

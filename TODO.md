@@ -1,4 +1,4 @@
-# Dependency Folding Plugin - Development Tasks
+# External Lib Folding Plugin - Development Tasks
 
 ## Implementation Roadmap
 
@@ -12,21 +12,21 @@
 ### Phase 2: Core Implementation
 - [x] Create a custom ProjectViewNodeDecorator implementation
 - [x] Implement a custom ProjectTreeStructureProvider to modify the External Libraries node
-- [x] Develop logic to identify and group dependencies by source (Maven, Gradle, etc.)
-- [x] Implement package-based grouping for dependencies
-- [ ] Create custom icons for different types of dependency groups (placeholder implementation)
+- [x] Develop logic to identify and group external libraries by source (Maven, Gradle, etc.)
+- [x] Implement package-based grouping for external libraries
+- [ ] Create custom icons for different types of external library groups (placeholder implementation)
 
 ### Phase 3: UI and User Experience
-- [x] Design and implement custom tree nodes for grouped dependencies
+- [x] Design and implement custom tree nodes for grouped external libraries
 - [x] Ensure proper expansion/collapse behavior for tree nodes
-- [x] Implement proper sorting of dependencies within groups
-- [x] Add tooltips with additional information for dependency nodes
+- [x] Implement proper sorting of external libraries within groups
+- [x] Add tooltips with additional information for external library nodes
 - [x] Ensure compatibility with different IDE themes
 
 ### Phase 4: Documentation and Release
 - [x] Update plugin.xml with proper descriptions and metadata
 - [x] Complete user documentation
-- [ ] Create screenshots for plugin marketplace (to be done after testing)
+- [x] Create screenshots for plugin marketplace
 - [x] Prepare release notes (in build.gradle.kts)
 - [ ] Submit to JetBrains Plugin Repository (to be done after testing)
 

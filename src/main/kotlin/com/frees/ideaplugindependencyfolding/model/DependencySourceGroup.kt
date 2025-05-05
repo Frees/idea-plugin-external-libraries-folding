@@ -7,7 +7,7 @@ import com.intellij.ui.IconManager
 import javax.swing.Icon
 
 /**
- * Logic for identifying and grouping dependencies by source (Maven, Gradle, etc.).
+ * Logic for identifying and grouping external libraries by source (Maven, Gradle, etc.).
  */
 class DependencySourceGroup(
     private val project: Project,
@@ -27,7 +27,7 @@ class DependencySourceGroup(
     }
 
     /**
-     * Groups the given nodes by their dependency source.
+     * Groups the given nodes by their external library source.
      */
     fun groupBySource(nodes: List<AbstractTreeNode<*>>): List<AbstractTreeNode<*>> {
         if (nodes.isEmpty()) return emptyList()
@@ -53,7 +53,7 @@ class DependencySourceGroup(
     }
 
     /**
-     * Identifies the source of a dependency node.
+     * Identifies the source of an external library node.
      */
     private fun identifySource(node: AbstractTreeNode<*>): String {
         val path = node.name ?: return UNKNOWN_SOURCE
