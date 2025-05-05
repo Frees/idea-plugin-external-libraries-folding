@@ -24,10 +24,10 @@
     </ul>
     <br>
     <h3>Before and After:</h3>
-    <img src="https://raw.githubusercontent.com/Frees/idea-plugin-external-libraries-folding/main/media/screenshot/before-after.png" alt="Before" width="1400"/></p>
+    <img src="https://raw.githubusercontent.com/Frees/idea-plugin-external-libraries-folding/main/media/screenshot/before-after.png" alt="Before"/></p>
     <br>
     <h3>Settings:</h3>
-    <p><img src="https://raw.githubusercontent.com/Frees/idea-plugin-external-libraries-folding/main/media/screenshot/settings.png" alt="Settings" width="1500"/></p>
+    <p><img src="https://raw.githubusercontent.com/Frees/idea-plugin-external-libraries-folding/main/media/screenshot/settings.png" alt="Settings"/></p>
     <br>
     By default, IntelliJ IDEA displays external libraries as a flat list in the Project View, which can become unwieldy in projects with many dependencies. 
     This plugin addresses this issue by providing a more organized, tree-based view.
