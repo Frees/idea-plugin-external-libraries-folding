@@ -44,4 +44,6 @@ class DependencyGroupNode(
     override fun canNavigate(): Boolean = false
 
     override fun canNavigateToSource(): Boolean = false
+
+    override fun toString(): String = groupName
 }

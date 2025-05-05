@@ -21,9 +21,9 @@ class DependencySourceGroup(
         const val UNKNOWN_SOURCE = "Other"
 
         // Patterns to identify source types
-        private val MAVEN_PATTERN = Regex(".*\\.m2/repository/.*")
-        private val GRADLE_PATTERN = Regex(".*/caches/modules-\\d+/files-\\d+/.*")
-        private val NPM_PATTERN = Regex(".*/node_modules/.*")
+        private val MAVEN_PATTERN = Regex("Maven: .*")
+        private val GRADLE_PATTERN = Regex("Gradle: .*")
+        private val NPM_PATTERN = Regex("NPM: .*")
     }
 
     /**
@@ -56,8 +56,8 @@ class DependencySourceGroup(
      * Identifies the source of a dependency node.
      */
     private fun identifySource(node: AbstractTreeNode<*>): String {
-        val path = node.toString() ?: return UNKNOWN_SOURCE
-
+        val path = node.name ?: return UNKNOWN_SOURCE
+        //
         return when {
             MAVEN_PATTERN.matches(path) -> MAVEN_SOURCE
             GRADLE_PATTERN.matches(path) -> GRADLE_SOURCE

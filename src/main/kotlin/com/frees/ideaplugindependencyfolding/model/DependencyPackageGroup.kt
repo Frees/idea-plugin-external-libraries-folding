@@ -24,24 +24,45 @@ class DependencyPackageGroup(
             "org.slf4j" to "SLF4J",
             "org.junit" to "JUnit",
             "javax" to "Java EE",
-            "jakarta" to "Jakarta EE"
+            "jakarta" to "Jakarta EE",
+            "com.squareup" to "Square",
+            "com.github" to "GitHub",
+            "org.hibernate" to "Hibernate",
+            "org.mockito" to "Mockito",
+            "org.eclipse" to "Eclipse",
+            "org.gradle" to "Gradle",
+            "org.scala-lang" to "Scala",
+            "org.apache.commons" to "Apache Commons",
+            "org.bouncycastle" to "Bouncy Castle",
+            "org.mapstruct" to "MapStruct",
+            "org.thymeleaf" to "Thymeleaf",
+            "org.yaml" to "YAML",
+            "org.dom4j" to "Dom4j",
+            "org.hamcrest" to "Hamcrest",
+            "org.glassfish" to "GlassFish",
+            "org.jboss" to "JBoss",
+            "org.springframework.boot" to "Spring Boot",
+            "org.springframework.cloud" to "Spring Cloud",
+            "org.springframework.data" to "Spring Data",
+            "org.springframework.security" to "Spring Security",
+            "org.springframework.web" to "Spring Web"
         )
     }
-    
+
     /**
      * Groups the given nodes by their package structure.
      */
     fun groupByPackage(nodes: List<AbstractTreeNode<*>>): List<AbstractTreeNode<*>> {
         if (nodes.isEmpty()) return emptyList()
-        
+
         // Group nodes by package
         val packageGroups = mutableMapOf<String, MutableList<AbstractTreeNode<*>>>()
-        
+
         for (node in nodes) {
             val packageName = identifyPackage(node)
             packageGroups.getOrPut(packageName) { mutableListOf() }.add(node)
         }
-        
+
         // Create group nodes
         return packageGroups.map { (packageName, children) ->
             DependencyGroupNode(
@@ -53,39 +74,39 @@ class DependencyPackageGroup(
             )
         }
     }
-    
+
     /**
      * Identifies the package of a dependency node.
      */
     private fun identifyPackage(node: AbstractTreeNode<*>): String {
-        val nodeName = node.toString()
-        
+        val nodeName = node.name ?: return "Other"
+
         // Try to match with common prefixes first
         for ((prefix, name) in COMMON_PREFIXES) {
             if (nodeName.contains(prefix, ignoreCase = true)) {
                 return name
             }
         }
-        
+
         // Extract package from node name
         val packagePattern = Regex("([a-z][a-z0-9_]*(\\.[a-z0-9_]+)+[0-9a-z_])", RegexOption.IGNORE_CASE)
         val match = packagePattern.find(nodeName)
-        
+
         if (match != null) {
             val fullPackage = match.groupValues[1]
-            // Take the first two segments of the package
+            // Take just the first segment of the package
             val segments = fullPackage.split(".")
-            return if (segments.size > 1) {
-                "${segments[0]}.${segments[1]}"
+            return if (segments.isNotEmpty()) {
+                segments[0]
             } else {
                 fullPackage
             }
         }
-        
+
         // If no package is found, use a default group
         return "Other"
     }
-    
+
     /**
      * Returns an icon for the given package.
      */

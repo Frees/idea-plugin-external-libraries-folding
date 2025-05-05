@@ -1,5 +1,6 @@
 package com.frees.ideaplugindependencyfolding.view
 
+import com.frees.ideaplugindependencyfolding.model.DependencyGroupNode
 import com.frees.ideaplugindependencyfolding.model.DependencyPackageGroup
 import com.frees.ideaplugindependencyfolding.model.DependencySourceGroup
 import com.intellij.ide.projectView.TreeStructureProvider
@@ -12,12 +13,12 @@ import com.intellij.openapi.project.Project
  * This provider is responsible for transforming the flat External Libraries list into a hierarchical tree structure.
  */
 class DependencyFoldingTreeStructureProvider(private val project: Project) : TreeStructureProvider {
-    
+
     companion object {
         // The name of the External Libraries node in the Project View
         private const val EXTERNAL_LIBRARIES_NODE = "External Libraries"
     }
-    
+
     /**
      * Modifies the children of a node in the Project View.
      * This method is called for each node in the tree when it's being expanded.
@@ -28,13 +29,16 @@ class DependencyFoldingTreeStructureProvider(private val project: Project) : Tre
         settings: ViewSettings
     ): Collection<AbstractTreeNode<*>> {
         // We only want to modify the External Libraries node
-        if (parent.value.toString() == EXTERNAL_LIBRARIES_NODE) {
+        val parentValue = parent.value.toString()
+
+        // Use a more flexible approach to identify the External Libraries node
+        if (parentValue.contains(EXTERNAL_LIBRARIES_NODE, ignoreCase = true)) {
             return organizeExternalLibraries(children, settings)
         }
-        
+
         return children
     }
-    
+
     /**
      * Organizes the External Libraries node by grouping dependencies.
      */
@@ -43,17 +47,17 @@ class DependencyFoldingTreeStructureProvider(private val project: Project) : Tre
         settings: ViewSettings
     ): Collection<AbstractTreeNode<*>> {
         if (children.isEmpty()) return children
-        
+
         val childrenList = children.toList()
-        
+
         // First, group by source (Maven, Gradle, etc.)
         val sourceGroup = DependencySourceGroup(project, settings)
         val sourceGrouped = sourceGroup.groupBySource(childrenList)
-        
+
         // Then, for each source group, group by package
         val packageGroup = DependencyPackageGroup(project, settings)
         val result = mutableListOf<AbstractTreeNode<*>>()
-        
+
         for (node in sourceGrouped) {
             val nodeChildren = node.children.toList()
             if (nodeChildren.isNotEmpty()) {
@@ -65,21 +69,29 @@ class DependencyFoldingTreeStructureProvider(private val project: Project) : Tre
                 result.add(node)
             }
         }
-        
+
         return result
     }
-    
+
     /**
      * Helper method to create a copy of a node with new children.
      */
     private fun AbstractTreeNode<*>.copy(newChildren: Collection<AbstractTreeNode<*>>): AbstractTreeNode<*> {
-        // This is a simplified implementation that assumes the node is a DependencyGroupNode
-        // In a real implementation, we would need to handle different node types
         val children = this.children.toList()
         if (children == newChildren) return this
-        
-        // For now, we'll just return the original node
-        // In a real implementation, we would create a new node with the same properties but different children
+
+        // Create a new DependencyGroupNode with the same properties but different children
+        if (this is DependencyGroupNode) {
+            return DependencyGroupNode(
+                project,
+                this.settings,
+                this.value,
+                newChildren.toList(),
+                null // We don't have access to the original icon, so use null
+            )
+        }
+
+        // For other node types, return the original node
         return this
     }
 }
