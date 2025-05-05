@@ -38,7 +38,7 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         name: Release ${{ steps.get_version.outputs.VERSION }}
-        files: ./build/libs/idea-plugin-dependency-folding-${{ steps.get_version.outputs.VERSION }}.zip
+        files: ./build/libs/idea-plugin-dependency-folding-${{ steps.get_version.outputs.VERSION }}.jar
         draft: false
         prerelease: false
       env:
