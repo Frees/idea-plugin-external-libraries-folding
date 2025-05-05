@@ -1,0 +1,43 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>com.frees.idea-plugin-dependency-folding</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>Dependency Folding</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor url="https://github.com/frees">Frees</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+    This plugin transforms the flat list in the External Libraries section of IntelliJ IDEA's Project View into a hierarchical tree structure.<br>
+    <br>
+    <b>Features:</b>
+    <ul>
+      <li>Organizes external dependencies by grouping them according to their source and package</li>
+      <li>Makes it easier to navigate and understand your project's dependencies</li>
+      <li>Improves readability of the External Libraries section</li>
+      <li>Maintains all functionality of the original External Libraries view</li>
+    </ul>
+    <br>
+    By default, IntelliJ IDEA displays external libraries as a flat list in the Project View, which can become unwieldy in projects with many dependencies. 
+    This plugin addresses this issue by providing a more organized, tree-based view.
+  ]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Register the ProjectViewNodeDecorator for customizing node appearance -->
+        <projectViewNodeDecorator implementation="com.frees.ideaplugindependencyfolding.view.DependencyFoldingProjectViewNodeDecorator"/>
+
+        <!-- Register the TreeStructureProvider for modifying the tree structure -->
+        <treeStructureProvider implementation="com.frees.ideaplugindependencyfolding.view.DependencyFoldingTreeStructureProvider"/>
+    </extensions>
+</idea-plugin>
