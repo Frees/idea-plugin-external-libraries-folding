@@ -5,7 +5,6 @@ plugins {
 }
 
 group = "com.frees"
-version = "0.0.1"
 
 repositories {
     mavenCentral()
@@ -14,15 +13,11 @@ repositories {
     }
 }
 
-// Configure Gradle IntelliJ Plugin
 // Read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin.html
 dependencies {
     intellijPlatform {
         create("IC", "2024.2.5")
         testFramework(org.jetbrains.intellij.platform.gradle.TestFrameworkType.Platform)
-
-        // Add necessary plugin dependencies for compilation here, example:
-        // bundledPlugin("com.intellij.java")
     }
 }
 
@@ -30,10 +25,11 @@ intellijPlatform {
     pluginConfiguration {
         ideaVersion {
             sinceBuild = "242"
+            untilBuild = "*"
         }
 
         changeNotes = """
-      <h3>1.0.0</h3>
+      <h3>v${version}</h3>
       <ul>
         <li>Initial release</li>
         <li>Transform flat External Libraries list into hierarchical tree structure</li>
