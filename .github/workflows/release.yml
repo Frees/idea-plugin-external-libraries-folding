@@ -25,20 +25,17 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
-    - name: Set version in build.gradle.kts
+    - name: Extract version from tag
+      id: get_version
       run: |
         VERSION=${GITHUB_REF#refs/tags/v}
-        sed -i "s/version = \".*\"/version = \"$VERSION\"/" build.gradle.kts
+        echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
 
     - name: Build with Gradle
-      run: ./gradlew buildPlugin
-
-    - name: Get the version
-      id: get_version
-      run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+      run: ./gradlew buildPlugin -Pversion=${{ steps.get_version.outputs.VERSION }}
 
     - name: Publish Plugin
-      run: ./gradlew publishPlugin
+      run: ./gradlew publishPlugin -Pversion=${{ steps.get_version.outputs.VERSION }}
       env:
         INTELLIJ_MARKETPLACE_TOKEN: ${{ secrets.INTELLIJ_MARKETPLACE_TOKEN }}
 
@@ -51,5 +48,3 @@ jobs:
         prerelease: false
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-
