@@ -1,5 +1,8 @@
 # External Lib Folding Plugin for IntelliJ IDEA
 
+[![JetBrains Marketplace](https://img.shields.io/jetbrains/plugin/v/27293-external-lib-folding.svg)](https://plugins.jetbrains.com/plugin/27293-external-lib-folding)
+[![JetBrains Marketplace Downloads](https://img.shields.io/jetbrains/plugin/d/27293-external-lib-folding.svg)](https://plugins.jetbrains.com/plugin/27293-external-lib-folding)
+
 ![Title](media/title.png)
 
 ## Overview
@@ -19,6 +22,8 @@ By default, IntelliJ IDEA displays external libraries as a flat list in the Proj
 1. In IntelliJ IDEA, go to Settings/Preferences → Plugins
 2. Click on "Marketplace" and search for "External Lib Folding"
 3. Click "Install" and restart the IDE when prompted
+
+Alternatively, you can download the plugin directly from the [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/27293-external-lib-folding).
 
 ## Usage
 After installation, the plugin automatically reorganizes the External Libraries section in your Project View. 
