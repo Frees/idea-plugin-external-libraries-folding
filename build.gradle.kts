@@ -25,18 +25,8 @@ intellijPlatform {
     pluginConfiguration {
         ideaVersion {
             sinceBuild = "242"
-            untilBuild = "*"
+            untilBuild = provider { null }
         }
-
-        changeNotes = """
-      <h3>v${version}</h3>
-      <ul>
-        <li>Initial release</li>
-        <li>Transform flat External Libraries list into hierarchical tree structure</li>
-        <li>Group dependencies by source and package</li>
-        <li>Improve navigation and readability of External Libraries section</li>
-      </ul>
-    """.trimIndent()
     }
 }
 
