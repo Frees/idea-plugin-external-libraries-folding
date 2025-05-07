@@ -58,7 +58,7 @@ class DependencyFoldingSettings : PersistentStateComponent<DependencyFoldingSett
 
     companion object {
         fun getInstance(): DependencyFoldingSettings {
-            return ServiceManager.getService(DependencyFoldingSettings::class.java)
+            return service()
         }
     }
 }
