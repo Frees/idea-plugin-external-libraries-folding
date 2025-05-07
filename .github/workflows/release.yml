@@ -37,6 +37,11 @@ jobs:
       id: get_version
       run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
 
+    - name: Publish Plugin
+      run: ./gradlew publishPlugin
+      env:
+        INTELLIJ_MARKETPLACE_TOKEN: ${{ secrets.INTELLIJ_MARKETPLACE_TOKEN }}
+
     - name: Create Release and Upload Asset
       uses: softprops/action-gh-release@v1
       with:
@@ -46,3 +51,5 @@ jobs:
         prerelease: false
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+

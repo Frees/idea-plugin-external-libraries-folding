@@ -36,6 +36,10 @@ intellijPlatform {
         """.trimIndent()
     }
 
+    publishing {
+        token = providers.environmentVariable("INTELLIJ_MARKETPLACE_TOKEN")
+    }
+
 }
 
 tasks {
