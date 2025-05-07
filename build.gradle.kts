@@ -5,6 +5,7 @@ plugins {
 }
 
 group = "com.frees"
+version = "0.0.1-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -27,7 +28,14 @@ intellijPlatform {
             sinceBuild = "242"
             untilBuild = provider { null }
         }
+        changeNotes = """
+          <h3>v${project.version}</h3>
+          <ul>
+            <li>update IDEA version</li>
+          </ul>
+        """.trimIndent()
     }
+
 }
 
 tasks {

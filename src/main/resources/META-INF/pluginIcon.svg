@@ -1,32 +1,23 @@
-<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Main background rectangle with rounded corners -->
-  <rect x="4" y="4" width="32" height="32" rx="4" fill="url(#paint0_linear)"/>
-  
-  <!-- Folder structure lines - representing hierarchical organization -->
-  <!-- First level -->
-  <path d="M8 10H32" stroke="white" stroke-width="1.5" stroke-opacity="0.9"/>
-  <!-- Second level -->
-  <path d="M12 16H32" stroke="white" stroke-width="1.5" stroke-opacity="0.8"/>
-  <path d="M12 22H32" stroke="white" stroke-width="1.5" stroke-opacity="0.8"/>
-  <!-- Third level -->
-  <path d="M16 28H32" stroke="white" stroke-width="1.5" stroke-opacity="0.7"/>
-  
-  <!-- Vertical connecting lines -->
-  <path d="M12 10V28" stroke="white" stroke-width="1.5" stroke-opacity="0.6"/>
-  <path d="M16 16V28" stroke="white" stroke-width="1.5" stroke-opacity="0.6"/>
-  
-  <!-- Small folder icons -->
-  <rect x="8" y="8" width="3" height="3" rx="1" fill="white" fill-opacity="0.9"/>
-  <rect x="12" y="14" width="3" height="3" rx="1" fill="white" fill-opacity="0.8"/>
-  <rect x="12" y="20" width="3" height="3" rx="1" fill="white" fill-opacity="0.8"/>
-  <rect x="16" y="26" width="3" height="3" rx="1" fill="white" fill-opacity="0.7"/>
-  
-  <!-- Gradient definition -->
-  <defs>
-    <linearGradient id="paint0_linear" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse">
-      <stop offset="0.15" stop-color="#3BEA62"/>
-      <stop offset="0.5" stop-color="#3C99CC"/>
-      <stop offset="0.85" stop-color="#6B57FF"/>
-    </linearGradient>
-  </defs>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <!-- Solid background -->
+  <rect x="2" y="2" width="36" height="36" rx="8" ry="8" fill="#4A86E8"/>
+
+  <!-- Simplified folder structures -->
+  <!-- Main folder -->
+  <rect x="8" y="7" width="24" height="5" rx="1" ry="1" fill="white" opacity="0.9"/>
+
+  <!-- Sub-folder 1 -->
+  <rect x="11" y="15" width="21" height="5" rx="1" ry="1" fill="white" opacity="0.9"/>
+
+  <!-- Sub-folder 2 -->
+  <rect x="14" y="23" width="18" height="5" rx="1" ry="1" fill="white" opacity="0.9"/>
+
+  <!-- Sub-folder 3 -->
+  <rect x="17" y="31" width="15" height="5" rx="1" ry="1" fill="white" opacity="0.9"/>
+
+  <!-- Simplified connector lines -->
+  <line x1="10" y1="12" x2="10" y2="15" stroke="white" stroke-width="2"/>
+  <line x1="13" y1="20" x2="13" y2="23" stroke="white" stroke-width="2"/>
+  <line x1="16" y1="28" x2="16" y2="31" stroke="white" stroke-width="2"/>
 </svg>
