@@ -1,5 +1,7 @@
 # External Lib Folding Plugin for IntelliJ IDEA
 
+![Title](media/title.png)
+
 ## Overview
 The External Lib Folding plugin transforms the flat list in the External Libraries section of IntelliJ IDEA's Project View into a hierarchical tree structure. It organizes external dependencies by grouping them according to their source and package, making it easier to navigate and understand your project's dependencies.
 
